@@ -1,0 +1,46 @@
+<div class="row m-0">
+    <div class="col-lg-4" >
+    </div>
+    <div class="col-lg-4 " >
+      <h4>Crear/Editar Vehiculo</h4>
+  <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Placa: </span>
+      </div>
+      <input type="text" value="{{vehiculo.placa}}" class="form-control">
+  </div>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="">Marca: </span>
+    </div>
+    <input type="text" value="{{vehiculo.marca}}" class="form-control">
+  </div>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="">Color:</span>
+    </div>
+    <input type="text" value="{{vehiculo.color}}" class="form-control">
+  </div>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="">Modelo: </span>
+    </div>
+    <input type="text" value="{{vehiculo.modelo}}" class="form-control">
+  </div>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="">Propietario: </span>
+    </div>
+    <input type="text" value="{{vehiculo.usuario}}" class="form-control">
+  </div>
+  <div class="input-group" *ngIf="esEditar">
+    <button type="button" class="btn btn-primary btn1">Editar</button>
+  </div>
+  <div class="input-group" *ngIf="!esEditar">
+    <button type="button" class="btn btn-success btn1">Crear</button>
+  </div>
+  </div>
+  <div class="col-lg-4" >
+  </div>
+  </div>
+

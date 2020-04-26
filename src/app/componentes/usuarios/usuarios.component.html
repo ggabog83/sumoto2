@@ -1,0 +1,17 @@
+<h1>Usuarios <button type="button" (click)="crearUsuario(-1)"class="btn btn-success btn1">Nuevo</button></h1>
+<div class="row">
+  <div class="col-4" *ngFor="let usuario of usuarios; let i = index">
+    <div class="card" >
+        <div class="card-body">
+            <h4 class="card-title">{{usuario.nombre}}</h4>
+            <p class="card-text"> Direccion: {{usuario.direccion}}</p>
+            <p class="card-text"> Telefono: {{usuario.telefono}}</p>
+            <p class="card-text"> Correo: {{usuario.correo}}</p>
+            <p class="card-text"> Tipo usuario: {{usuario.tipoUsuario}}</p>
+            <button type="button" (click)="editarUsuario(i)" class="btn btn-primary btn1">Editar</button>
+            <button type="button" (click)="eliminarUsuario(i)"class="btn btn-danger btn1">Eliminar</button>
+        </div>
+    </div>
+    <br>
+  </div>
+</div>
