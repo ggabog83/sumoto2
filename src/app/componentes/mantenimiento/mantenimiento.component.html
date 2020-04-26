@@ -1,1 +1,17 @@
-<p>mantenimiento works!</p>
+<h1>Mantenimientos <button type="button" (click)="crearMantenimiento(-1)"class="btn btn-success btn1">Nuevo</button></h1>
+<div class="row">
+  <div class="col-4" *ngFor="let mantenimiento of mantenimientos; let i = index">
+    <div class="card" >
+        <div class="card-body">
+            <h4 class="card-title">Tipo mantenimiento: {{mantenimiento.tipoMantenimiento}}</h4>
+            <p class="card-text"> Fecha: {{mantenimiento.fecha}}</p>
+            <p class="card-text"> Mecanico: {{mantenimiento.mecanico}}</p>
+            <p class="card-text"> Vehiculo: {{mantenimiento.vehiculo}}</p>
+            <p class="card-text"> Observación: {{mantenimiento.observacion}}</p>
+            <button type="button" (click)="editarMantenimiento(i)" class="btn btn-primary btn1">Editar</button>
+            <button type="button" (click)="eliminarMantenimiento(i)"class="btn btn-danger btn1">Eliminar</button>
+        </div>
+    </div>
+    <br>
+  </div>
+</div>

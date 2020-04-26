@@ -19,7 +19,7 @@ import { VehiculosComponent } from './componentes/vehiculos/vehiculos.component'
 import { UsuarioCrearEditarComponent } from './componentes/usuarios/usuario-crear-editar/usuario-crear-editar.component';
 import { VehiculoCrearEditarComponent } from './componentes/vehiculos/vehiculo-crear-editar/vehiculo-crear-editar.component';
 import { TallerCrearEditarComponent } from './componentes/talleres/taller-crear-editar/taller-crear-editar.component';
-import { MantenimientoCrearEditarComponent } from './componentes/mantenimientos/mantenimiento-crear-editar/mantenimiento-crear-editar.component';
+import { MantenimientoCrearEditarComponent } from './componentes/mantenimiento/mantenimiento-crear-editar/mantenimiento-crear-editar.component';
 
 @NgModule({
   declarations: [

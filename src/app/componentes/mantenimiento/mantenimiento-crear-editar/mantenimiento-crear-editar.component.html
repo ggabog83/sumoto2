@@ -1,1 +1,45 @@
-<p>mantenimiento-crear-editar works!</p>
+<div class="row m-0">
+    <div class="col-lg-4" >
+    </div>
+    <div class="col-lg-4 " >
+      <h4>Crear/Editar Mantenimiento</h4>
+  <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Tipo mantenimiento: </span>
+      </div>
+      <input type="text" value="{{mantenimiento.tipoMantenimiento}}" class="form-control">
+  </div>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="">Fechas: </span>
+    </div>
+    <input type="text" value="{{mantenimiento.fecha}}" class="form-control">
+  </div>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="">Mecanico::</span>
+    </div>
+    <input type="text" value="{{mantenimiento.mecanico}}" class="form-control">
+  </div>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="">Vehiculo: </span>
+    </div>
+    <input type="email" value="{{mantenimiento.vehiculo}}" class="form-control">
+  </div>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="">Observaciónes: </span>
+    </div>
+    <input type="text" value="{{mantenimiento.observaciones}}" class="form-control">
+  </div>
+  <div class="input-group" *ngIf="esEditar">
+    <button type="button" class="btn btn-primary btn1">Editar</button>
+  </div>
+  <div class="input-group" *ngIf="!esEditar">
+    <button type="button" class="btn btn-success btn1">Crear</button>
+  </div>
+  </div>
+  <div class="col-lg-4" >
+  </div>
+  </div>

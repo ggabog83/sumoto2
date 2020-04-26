@@ -2,6 +2,7 @@ import{RouterModule,Routes} from '@angular/router';
 import {HomeComponent} from './componentes/home/home.component';
 import { LoginComponent } from './componentes/login/login.component'
 import { MantenimientoComponent } from './componentes/mantenimiento/mantenimiento.component'
+import { MantenimientoCrearEditarComponent } from './componentes/mantenimiento/mantenimiento-crear-editar/mantenimiento-crear-editar.component';
 import { TalleresComponent } from './componentes/talleres/talleres.component';
 import { TallerCrearEditarComponent } from './componentes/talleres/taller-crear-editar/taller-crear-editar.component';
 import { VehiculosComponent } from './componentes/vehiculos/vehiculos.component'
@@ -14,6 +15,7 @@ const APP_ROUTES:Routes =[
     {path:'home',component:HomeComponent},
     {path:'login',component:LoginComponent},
     {path:'mantenimiento',component:MantenimientoComponent},
+    {path:'mantenimiento_crear_editar/:index',component:MantenimientoCrearEditarComponent}, 
     {path:'talleres',component:TalleresComponent},
     {path:'taller_crear_editar/:index',component:TallerCrearEditarComponent},   
     {path:'vehiculos',component:VehiculosComponent},
