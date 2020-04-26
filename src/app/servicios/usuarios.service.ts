@@ -17,7 +17,8 @@ export class UsuariosService {
       telefono: 3217771657,
       correo: "ggabog83@gmail.com",
       tipoUsuario:"mecanico",
-      taller:"Taller JJ Motos"
+      taller:"Taller JJ Motos",
+      pasword:'1' 
     },
     
     {
@@ -26,7 +27,8 @@ export class UsuariosService {
       telefono: 3217771657,
       correo: "ggabog83@gmail.com",
       tipoUsuario:"mecanico",
-      taller:"Taller Moto - Mix"
+      taller:"Taller Moto - Mix",
+      pasword:'1' 
     },
     
     {
@@ -35,7 +37,8 @@ export class UsuariosService {
       telefono: 8914446,
       correo: "ggabog83@gmail.com",
       tipoUsuario:"cliente",
-      taller:"Taller Moto - Mix"
+      taller:"Taller Moto - Mix",
+      pasword:'1' 
     },
     {
       nombre: "pedro infante",
@@ -43,8 +46,8 @@ export class UsuariosService {
       telefono: 3113077981,
       correo: "ggabog83@gmail.com",
       tipoUsuario:"cliente",
-      taller:"Juanchos Motos"
-    }]
+      taller:"Juanchos Motos",
+      pasword:'1'  }]
   constructor() { }
 
   public getUsuarios():Usuario[]{
@@ -67,6 +70,7 @@ export interface Usuario{
   correo: string;
   tipoUsuario: string;
   taller: string;
+  pasword:string;
 }
 
 export interface TipoUsuario{

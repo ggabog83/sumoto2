@@ -10,6 +10,7 @@ import { VehiculoCrearEditarComponent } from './componentes/vehiculos/vehiculo-c
 import { UsuariosComponent } from './componentes/usuarios/usuarios.component'
 import { UsuarioCrearEditarComponent } from './componentes/usuarios/usuario-crear-editar/usuario-crear-editar.component';
 import { AliadosComponent } from './componentes/aliados/aliados.component';
+import { RegistroComponent } from './componentes/registro/registro.component';
 
 const APP_ROUTES:Routes =[
     {path:'home',component:HomeComponent},
@@ -23,6 +24,7 @@ const APP_ROUTES:Routes =[
     {path:'usuarios',component:UsuariosComponent},    
     {path:'usuario_crear_editar/:index',component:UsuarioCrearEditarComponent},    
     {path:'aliados',component:AliadosComponent},
+    {path:'registro',component:RegistroComponent},
     {path:'**', pathMatch:'full', redirectTo:'home'}
 ];
 

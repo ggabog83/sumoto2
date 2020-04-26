@@ -20,6 +20,7 @@ import { UsuarioCrearEditarComponent } from './componentes/usuarios/usuario-crea
 import { VehiculoCrearEditarComponent } from './componentes/vehiculos/vehiculo-crear-editar/vehiculo-crear-editar.component';
 import { TallerCrearEditarComponent } from './componentes/talleres/taller-crear-editar/taller-crear-editar.component';
 import { MantenimientoCrearEditarComponent } from './componentes/mantenimiento/mantenimiento-crear-editar/mantenimiento-crear-editar.component';
+import { RegistroComponent } from './componentes/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { MantenimientoCrearEditarComponent } from './componentes/mantenimiento/m
     UsuarioCrearEditarComponent,
     VehiculoCrearEditarComponent,
     TallerCrearEditarComponent,
-    MantenimientoCrearEditarComponent
+    MantenimientoCrearEditarComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
