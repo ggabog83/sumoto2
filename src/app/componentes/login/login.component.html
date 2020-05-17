@@ -1,7 +1,7 @@
 <section id="login">
   <div class="container-fluid">
     <div class="row full-height-vh m-0">
-    <form ngNativeValidate #f="ngForm" class="form-horizontal form-material" (ngSubmit)="loginF(f)">
+    <form class="form-horizontal form-material" #formLogin="ngForm" (ngSubmit)="onSubmit(formLogin)">
       <div class="col-12 d-flex align-items-center justify-content-center">
         <div class="card">
           <div class="card-content">
@@ -12,17 +12,16 @@
                 </div>
                 <div class="col-lg-6 col-md-12 bg-white px-4 pt-3">
                   <h4 class="card-title mb-2">Login</h4>
-                  <p class="card-text mb-3">{{loginPagina.titulo}}</p>
-                  <input ngModel name="Username" type="email" class="form-control mb-3" palceholder="Usuario/Correo" required />
-                  <input ngModel name="password" type="password" class="form-control mb-3" palceholder="Contraseña" required />
+                  <input [(ngModel)]="login.email" name="Username" type="email" class="form-control mb-3" palceholder="Correo" required />
+                  <input [(ngModel)]="login.password" name="password" type="password" class="form-control mb-3" palceholder="Contraseña" required />
                        
                 <div class="d-flex justify-content-between mt-2">
                 
                   </div>
                   <div class="fg-actions d-flex justify-content-between">
                     <div class="recover-pass">
-                      <button class="btn btn-primary">
-                        <a [routerLink]="['/mantenimiento']"  class="text-decoration-none text-white" (click)="ngSubmit">Login</a>
+                      <button class="btn btn-primary" type="ngSubmit">
+                        Login
                       </button>
                     </div>
                   </div>

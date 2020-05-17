@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ViewChild } from '@angular/core';
 import {LoginService, Login, LoginPagina} from '../../servicios/login.service';
+import { LoginModel } from 'src/app/modelos/login.model';
+import Swal from 'sweetalert2'
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/servicios/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,22 +15,36 @@ import {LoginService, Login, LoginPagina} from '../../servicios/login.service';
 export class LoginComponent implements OnInit {
 
   public loading = false;
-  login:Login = null;
-  loginPagina:LoginPagina = null;
+  login: LoginModel;
 
-  @ViewChild('f', {static: false}) loginForm: NgForm;
-
-  constructor(private _loginService:LoginService ) {
+  constructor(private authService: AuthService,
+    private router: Router) {
   }
-
   ngOnInit() {
-    this.loginPagina = this._loginService.getLoginPagina();
+    this.login = new LoginModel();
   }
 
-  public loginF(userLogin: NgForm){
-    this.loading = true;
-    this.login.userName = userLogin.form.value.userName;
-    this.login.password = userLogin.form.value.password;
+  onSubmit(formLogin:NgForm){
+    
+    if (formLogin.invalid) { return }
+
+    Swal.fire({
+      allowOutsideClick: false,
+      text: 'Esperar por favor'
+    });
+    Swal.showLoading();
+
+    this.authService.login(this.login).subscribe(resp => {
+      Swal.close();
+      this.router.navigateByUrl('/home')
+    }, (err) => {
+      console.log(err);
+      Swal.fire({
+        title: 'Error de autenticacion.',
+        icon: 'error',
+        text: err.error.error.message
+      })
+    });
   }
 }
 
