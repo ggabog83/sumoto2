@@ -3,10 +3,13 @@ import { Component } from '@angular/core';
 let AliadosComponent = class AliadosComponent {
     constructor(_aliadoService) {
         this._aliadoService = _aliadoService;
-        this.aliados = [];
     }
     ngOnInit() {
         this.aliados = this._aliadoService.getAliados();
+        console.log(this.aliados);
+    }
+    getAlidos() {
+        return this._aliadoService.getAliados();
     }
 };
 AliadosComponent = tslib_1.__decorate([

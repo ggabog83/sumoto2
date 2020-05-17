@@ -12,15 +12,25 @@ let LoginComponent = class LoginComponent {
         this.login = new LoginModel();
     }
     onSubmit(formLogin) {
+        if (formLogin.invalid) {
+            return;
+        }
         Swal.fire({
             allowOutsideClick: false,
-            title: 'Error!',
-            text: 'Do you want to continue',
-            icon: 'error',
-            confirmButtonText: 'Cool'
+            text: 'Esperar por favor'
         });
-        //Swal.showLoading();
-        console.log("gtg");
+        Swal.showLoading();
+        this.authService.login(this.login).subscribe(resp => {
+            Swal.close();
+            this.router.navigateByUrl('/home');
+        }, (err) => {
+            console.log(err);
+            Swal.fire({
+                title: 'Error de autenticacion.',
+                icon: 'error',
+                text: err.error.error.message
+            });
+        });
     }
 };
 LoginComponent = tslib_1.__decorate([

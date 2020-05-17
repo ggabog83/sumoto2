@@ -27,7 +27,7 @@ let RegistroComponent = class RegistroComponent {
             Swal.fire({
                 title: 'Error de autenticacion.',
                 icon: 'error',
-                text: err.error.message
+                text: err.error.error.message
             });
         });
     }

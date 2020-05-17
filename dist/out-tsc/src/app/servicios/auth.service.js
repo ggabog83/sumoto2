@@ -6,7 +6,7 @@ let AuthService = class AuthService {
         this.http = http;
         this.url = 'https://identitytoolkit.googleapis.com/v1/accounts:';
         this.apiKey = "AIzaSyDxSLhFVPP83sl07quPqr-HucouhyTyrXs";
-        this.userToken = "";
+        this.leerToken();
     }
     registro(login) {
         const authData = {
@@ -14,7 +14,8 @@ let AuthService = class AuthService {
             password: login.password,
             returnSecureToken: true
         };
-        return this.http.post(`${this.url}signInWithPassword?key=${this.apiKey}`, authData).pipe(map(resp => {
+        console.log(authData);
+        return this.http.post(`${this.url}signUp?key=${this.apiKey}`, authData).pipe(map(resp => {
             this.guardarToken(resp['idToken']);
             return resp;
         }));
@@ -25,6 +26,38 @@ let AuthService = class AuthService {
         let hoy = new Date();
         hoy.setSeconds(3600);
         localStorage.setItem('expira', hoy.toString());
+    }
+    login(login) {
+        const authData = {
+            email: login.email,
+            password: login.password,
+            returnSecureToken: true
+        };
+        return this.http.post(`${this.url}signInWithPassword?key=${this.apiKey}`, authData).pipe(map(resp => {
+            this.guardarToken(resp['idToken']);
+            return resp;
+        }));
+    }
+    autenticado() {
+        if (this.userToken.length < 2) {
+            return false;
+        }
+        const expira = localStorage.getItem('expira');
+        const expiraFecha = new Date(expira);
+        if (expiraFecha > new Date()) {
+            return true;
+        }
+    }
+    leerToken() {
+        if (localStorage.getItem('token')) {
+            this.userToken = localStorage.getItem('token');
+        }
+        else {
+            this.userToken = "";
+        }
+    }
+    cerrarSesion() {
+        localStorage.removeItem('token');
     }
 };
 AuthService = tslib_1.__decorate([

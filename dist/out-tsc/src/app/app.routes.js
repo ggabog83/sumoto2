@@ -11,8 +11,9 @@ import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
 import { UsuarioCrearEditarComponent } from './componentes/usuarios/usuario-crear-editar/usuario-crear-editar.component';
 import { AliadosComponent } from './componentes/aliados/aliados.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
+import { AuthGuard } from './guards/auth.guard';
 const APP_ROUTES = [
-    { path: 'home', component: HomeComponent },
+    { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
     { path: 'mantenimiento', component: MantenimientoComponent },
     { path: 'mantenimiento_crear_editar/:index', component: MantenimientoCrearEditarComponent },
