@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Usuario, UsuariosService} from '../../../servicios/usuarios.service';
+import {UsuariosService} from '../../../servicios/usuarios.service';
 import {ActivatedRoute} from '@angular/router';
+import { Usuario } from 'src/app/modelos/usuario.model';
 
 
 @Component({
@@ -15,11 +16,14 @@ export class TallerCrearEditarComponent implements OnInit {
 
   constructor(private _activateRouter:ActivatedRoute,
     private _usuariosService:UsuariosService) {
+
     this._activateRouter.params.subscribe(params=>{
-      let indice = params['index'];
-      if(indice != -1){
+      let id = params['id'];
+      if(id != "-1"){
         this.esEditar = true;
-        this.usuario = this._usuariosService.getUsuario(indice)
+        this._usuariosService.getUsuario(id).subscribe(resp => {
+            this.usuario = resp;
+        });
       }else{
         this.esEditar = false;
       }

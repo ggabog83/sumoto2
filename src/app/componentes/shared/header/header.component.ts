@@ -10,10 +10,15 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
   constructor(private authService: AuthService,
     private router: Router) {
+      
   }
 
   salir(){
     this.authService.cerrarSesion();
     this.router.navigateByUrl("/login");
+  }
+
+  estaAutenticado(){
+    return this.authService.autenticado();
   }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import{UsuariosService, Usuario, TipoUsuario} from '../../servicios/usuarios.service';
+import{UsuariosService} from '../../servicios/usuarios.service';
 import {Router} from '@angular/router';
+import { Usuario } from 'src/app/modelos/usuario.model';
+import { TiposUsuario } from 'src/app/modelos/tiposUsuario';
  
 
 @Component({
@@ -9,28 +11,41 @@ import {Router} from '@angular/router';
   styleUrls: ['./usuarios.component.css']
 })
 export class UsuariosComponent implements OnInit {
-  usuarios:Usuario[] = null;
-  tipoUsuarios:TipoUsuario[] = null;
+  usuarios:Usuario[]=null;
+  tipoUsuarios:TiposUsuario[]= null;
 
   constructor(private _usuariosService: UsuariosService
                ,private _router:Router) { }
 
   ngOnInit() {
-    this.tipoUsuarios = this._usuariosService.getTiposUsuario();
-    this.usuarios = this._usuariosService.getUsuarios();
+    this.getTiposUsuario();
+    this.getUsuarios();
   }
 
-  editarUsuario(index:number) 
+  editarUsuario(id:string) 
   {
-    this._router.navigate(['usuario_crear_editar', index]);
+    this._router.navigate(['usuario_crear_editar', id]);
   }
 
-  crearUsuario(index:number) 
+  crearUsuario(id:string) 
   {
-    this._router.navigate(['usuario_crear_editar', index]);
+    this._router.navigate(['usuario_crear_editar', id]);
   }
 
   eliminarUsuario(index:number){
     alert("se va a eliminar un usuario.")
+  }
+
+
+  private getTiposUsuario(){
+    this._usuariosService.getUsuarios().subscribe(resp =>{
+      this.tipoUsuarios = resp;
+    });
+  }
+
+  private getUsuarios(){
+    this._usuariosService.getTiposUsuario().subscribe(resp =>{
+      this.tipoUsuarios = resp;
+    });
   }
 }

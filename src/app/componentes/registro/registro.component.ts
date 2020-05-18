@@ -33,7 +33,7 @@ export class RegistroComponent implements OnInit {
 
     this.authService.registro(this.login).subscribe(resp => {
       Swal.close();
-      this.router.navigateByUrl('/home')
+      this.router.navigateByUrl('/mantenimiento')
     }, (err) => {
       console.log(err);
       Swal.fire({

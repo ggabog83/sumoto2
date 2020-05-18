@@ -13,7 +13,6 @@ export class AliadosComponent implements OnInit {
   aliados:Aliados[];
   
   constructor(private _aliadoService:AliadosService) { 
-
   }
 
   ngOnInit():void {

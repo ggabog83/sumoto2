@@ -14,16 +14,16 @@ import { RegistroComponent } from './componentes/registro/registro.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const APP_ROUTES:Routes =[
-    {path:'home',component:HomeComponent, canActivate:[AuthGuard] },
+    {path:'home',component:HomeComponent },
     {path:'login',component:LoginComponent},
-    {path:'mantenimiento',component:MantenimientoComponent},
-    {path:'mantenimiento_crear_editar/:index',component:MantenimientoCrearEditarComponent}, 
-    {path:'talleres',component:TalleresComponent},
-    {path:'taller_crear_editar/:index',component:TallerCrearEditarComponent},   
-    {path:'vehiculos',component:VehiculosComponent},
-    {path:'vehiculo_crear_editar/:index',component:VehiculoCrearEditarComponent},    
-    {path:'usuarios',component:UsuariosComponent},    
-    {path:'usuario_crear_editar/:index',component:UsuarioCrearEditarComponent},    
+    {path:'mantenimiento',component:MantenimientoComponent, canActivate:[AuthGuard]},
+    {path:'mantenimiento_crear_editar/:index',component:MantenimientoCrearEditarComponent, canActivate:[AuthGuard]}, 
+    {path:'talleres',component:TalleresComponent, canActivate:[AuthGuard]},
+    {path:'taller_crear_editar/:index',component:TallerCrearEditarComponent, canActivate:[AuthGuard]},   
+    {path:'vehiculos',component:VehiculosComponent, canActivate:[AuthGuard]},
+    {path:'vehiculo_crear_editar/:index',component:VehiculoCrearEditarComponent, canActivate:[AuthGuard]},    
+    {path:'usuarios',component:UsuariosComponent, canActivate:[AuthGuard]},    
+    {path:'usuario_crear_editar/:id',component:UsuarioCrearEditarComponent, canActivate:[AuthGuard]},    
     {path:'aliados',component:AliadosComponent},
     {path:'registro',component:RegistroComponent},
     {path:'**', pathMatch:'full', redirectTo:'home'}

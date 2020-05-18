@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(this.login).subscribe(resp => {
       Swal.close();
-      this.router.navigateByUrl('/home')
+      this.router.navigateByUrl('/mantenimiento')
     }, (err) => {
       console.log(err);
       Swal.fire({

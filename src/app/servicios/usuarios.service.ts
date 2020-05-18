@@ -1,81 +1,43 @@
 import { Injectable } from '@angular/core';
+import { ServicioBaseService } from './servicio-base.service';
+import { HttpClient } from '@angular/common/http';
+import { Usuario } from '../modelos/usuario.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsuariosService {
-
-  private tiposUsuario:TipoUsuario[] = [
-    {nombre: "cliente"},
-    {nombre: "mecanico"}
-  ];
-
-  private usuarios:Usuario[]=[     
-    {
-      nombre: "juan gabriel",
-      direccion: "Carrera 24 B # 29-01", 
-      telefono: 3217771657,
-      correo: "ggabog83@gmail.com",
-      tipoUsuario:"mecanico",
-      taller:"Taller JJ Motos",
-      pasword:'1' 
-    },
-    
-    {
-      nombre: "juan alzare", 
-      direccion: "Carrera 24 B # 29-01",
-      telefono: 3217771657,
-      correo: "ggabog83@gmail.com",
-      tipoUsuario:"mecanico",
-      taller:"Taller Moto - Mix",
-      pasword:'1' 
-    },
-    
-    {
-    nombre: "daniela grisales",
-      direccion: "Cra. 25 ##28-40",
-      telefono: 8914446,
-      correo: "ggabog83@gmail.com",
-      tipoUsuario:"cliente",
-      taller:"Taller Moto - Mix",
-      pasword:'1' 
-    },
-    {
-      nombre: "pedro infante",
-      direccion:"Cra. 23 #39-39",
-      telefono: 3113077981,
-      correo: "ggabog83@gmail.com",
-      tipoUsuario:"cliente",
-      taller:"Juanchos Motos",
-      pasword:'1'  }]
-  constructor() { }
-
-  public getUsuarios():Usuario[]{
-    return this.usuarios;
+export class UsuariosService extends ServicioBaseService {
+  constructor(public http: HttpClient) {
+    super(http);
   }
 
-  public getUsuario(index:number):Usuario{
-    return this.usuarios[index];
+  colleccion = "usuarios";
+
+  public crearUsuario(usuario: Usuario) {
+    return super.crear(usuario,this.colleccion);
   }
 
-  public getTiposUsuario():TipoUsuario[]{
-    return this.tiposUsuario;
+  public actualizarUsuario(usuario: Usuario) {
+    return super.actualizar(usuario,this.colleccion);
+  }
+
+  public eliminarUsuario(id: string) {
+    return super.eliminar(id,this.colleccion);
+  }
+
+  public getUsuarios() {
+    return super.obtenerTodo(this.colleccion);
+  }
+
+  public getUsuario(id: string) {
+    return super.obtenerPorId(id, this.colleccion);
+  }
+
+  public getTiposUsuario() {
+    return super.obtenerTodo('tiposUsuario');
   }
 }
 
-export interface Usuario{
-  nombre: string;
-  direccion: string;
-  telefono: number;
-  correo: string;
-  tipoUsuario: string;
-  taller: string;
-  pasword:string;
-}
-
-export interface TipoUsuario{
-  nombre: string;
-}
 
 
 

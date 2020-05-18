@@ -71,7 +71,7 @@ export class ServicioBaseService {
       `${this.url}${colleccion}/${id}.json`).pipe(
         map((resp:any) => {
         
-        return this.crearArreglo(resp);
+        return resp;
       })
       );
   }

@@ -4,12 +4,13 @@
     <div class="card" >
         <div class="card-body">
             <h4 class="card-title">{{usuario.nombre}}</h4>
+            <p class="card-text"> Id: {{usuario.Id}}</p>
             <p class="card-text"> Direccion: {{usuario.direccion}}</p>
             <p class="card-text"> Telefono: {{usuario.telefono}}</p>
             <p class="card-text"> Correo: {{usuario.correo}}</p>
             <p class="card-text"> Tipo usuario: {{usuario.tipoUsuario}}</p>
-            <button type="button" (click)="editarUsuario(i)" class="btn btn-primary btn1">Editar</button>
-            <button type="button" (click)="eliminarUsuario(i)"class="btn btn-danger btn1">Eliminar</button>
+            <button type="button" (click)="editarUsuario(usuario.Id)" class="btn btn-primary btn1">Editar</button>
+            <button type="button" (click)="eliminarUsuario(usuario.Id)"class="btn btn-danger btn1">Eliminar</button>
         </div>
     </div>
     <br>
