@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ViewChild } from '@angular/core';
-import {LoginService, Login, LoginPagina} from '../../servicios/login.service';
 import { LoginModel } from 'src/app/modelos/login.model';
 import Swal from 'sweetalert2'
 import { Router } from '@angular/router';
