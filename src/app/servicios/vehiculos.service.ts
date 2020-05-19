@@ -1,68 +1,36 @@
 import { Injectable } from '@angular/core';
+import { ServicioBaseService } from './servicio-base.service';
+import { HttpClient } from '@angular/common/http';
+import { Vehiculo } from '../modelos/vehiculo.model';
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class VehiculosService {
-  private vehiculos:Vehiculo[]=[     
-    {
-      marca:"Kawasaki",
-      color: "amarillo",
-      modelo: 2015,
-      placa: "rxs187",
-      usuario:" pedro infante",
-      img:"assets/img/Kawasaki.jpg"
-    
-    },
-    {
-     marca: "Harley-Davidson",
-      color: "negra",
-      modelo: 2015,
-      placa: "rxs157",
-      usuario: "daniela grisales",
-      img:"assets/img/Harley.jpg"
-     
-    },
-    {
-    marca: "KTM",
-      color: "negra",
-      modelo: 2020,
-      placa: "rxs197",
-      usuario: "daniela grisales",
-      img:"assets/img/KTM.jpg"
-      
-    },
-    {
-    marca: "BMW",
-      color: "negra",
-      modelo: 2020,
-      placa: "rxs197",
-      usuario: "gabriel guevara a",
-      img:"assets/img/BMW.jpg"
-      
-    },]
-
-  constructor() { }
-
-  public getVehiculos():Vehiculo[]{
-    return this.vehiculos;
+export class VehiculosService extends ServicioBaseService {
+  constructor(public http: HttpClient) {
+    super(http);
   }
 
-  public getVehiculo(index:number):Vehiculo{
-    return this.vehiculos[index];
+  colleccion = "vehiculos";
+
+  public crearVehiculo(vehiculo: Vehiculo) {
+    return super.crear(vehiculo, this.colleccion);
+  }
+
+  public actualizarVehiculo(vehiculo: Vehiculo) {
+    return super.actualizar(vehiculo, this.colleccion);
+  }
+
+  public eliminarVehiculo(id: string) {
+    return super.eliminar(id, this.colleccion);
+  }
+
+  public getVehiculos() {
+    return super.obtenerTodo(this.colleccion);
+  }
+
+  public getVehiculo(id: string) {
+    return super.obtenerPorId(id, this.colleccion);
   }
 }
-
-export interface Vehiculo{
-  marca: string;
-  color: string;
-  modelo: number;
-  placa: string;
-  usuario: string;
-  img:string;
-
-}
-
-
-

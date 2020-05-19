@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import{MantenimientoService, Mantenimiento} from '../../servicios/mantenimiento.service';
-import {Router} from '@angular/router';
+import { MantenimientoService } from '../../servicios/mantenimiento.service';
+import { Router } from '@angular/router';
+import { Mantenimiento } from 'src/app/modelos/mantenimiento';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-mantenimiento',
@@ -10,27 +12,42 @@ import {Router} from '@angular/router';
 
 export class MantenimientoComponent implements OnInit {
 
-  mantenimientos:Mantenimiento[] = null;
+  mantenimientos: Mantenimiento[] = null;
 
   constructor(private _mantenimientoService: MantenimientoService
-               ,private _router:Router) { }
+    , private _router: Router) { }
 
   ngOnInit() {
 
-    this.mantenimientos = this._mantenimientoService.getMantenimientos();
+    this.getMantenimientos();
   }
 
-  editarMantenimiento(index:number) 
-  {
-    this._router.navigate(['mantenimiento_crear_editar', index]);
+  editarMantenimiento(id: string) {
+    this._router.navigate(['mantenimiento_crear_editar', id]);
   }
 
-  crearMantenimiento(index:number) 
-  {
-    this._router.navigate(['mantenimiento_crear_editar', index]);
+  crearMantenimiento() {
+    this._router.navigate(['mantenimiento_crear_editar', "-1"]);
   }
 
-  eliminarMantenimiento(index:number){
-    alert("se va a eliminar un mantenimiento.")
+  eliminarMantenimiento(id: string, index: number) {
+    Swal.fire({
+      icon: "question",
+      text: '¿Esta seguro que desea eliminar el mantenimiento?.',
+      showConfirmButton: true,
+      showCancelButton: true
+    }).then(resp => {
+      if (resp.value) {
+        this._mantenimientoService.eliminarMantenimiento(id).subscribe(res => {
+          this.mantenimientos.splice(index, 1);
+        });
+      }
+    });
+  }
+
+  private getMantenimientos() {
+    this._mantenimientoService.getMantenimientos().subscribe(resp => {
+      this.mantenimientos = resp;
+    });
   }
 }

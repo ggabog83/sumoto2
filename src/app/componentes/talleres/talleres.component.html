@@ -1,16 +1,17 @@
-<h1>Talleres <button type="button" (click)="crearTaller(-1)"class="btn btn-success btn1">Nuevo</button></h1>
+<h1>Talleres <button type="button" (click)="crearTaller(-1)" class="btn btn-success btn1"><i class="fas fa-plus-circle"></i>  Nuevo</button></h1>
 <div class="row">
-  <div class="col-4" *ngFor="let taller of talleres; let i = index">
-    <div class="card" >
-      <img [src]="taller.img" class="card-img-top" [alt]="taller.nombre">
-        <div class="card-body">
-            <h4 class="card-title">{{taller.nombre}}</h4>
-            <p class="card-text"> Direccion: {{taller.direccion}}</p>
-            <p class="card-text"> Telefono: {{taller.telefono}}</p>
-            <button type="button" (click)="editarTaller(i)" class="btn btn-primary btn1">Editar</button>
-            <button type="button" (click)="eliminarTaller(i)"class="btn btn-danger btn1">Eliminar</button>
+    <div class="col-4" *ngFor="let taller of talleres; let i = index">
+        <div class="card">
+            <!-- <img [src]="taller.img" class="card-img-top" [alt]="taller.nombre">-->
+            <div class="card-body">
+                <h4 class="card-title">{{taller.nombre}}</h4>
+                <p class="card-text"> Id: {{taller.id}}</p>
+                <p class="card-text"> Direccion: {{taller.direccion}}</p>
+                <p class="card-text"> Telefono: {{taller.telefono}}</p>
+                <button type="button" (click)="editarTaller(taller.id)" class="btn btn-primary btn1"><i class="fas fa-user-edit"></i> Editar</button>
+                <button type="button" (click)="eliminarTaller(taller.id, i)" class="btn btn-danger btn1"><i class="fas fa-trash-alt"></i>  Eliminar</button>
+            </div>
         </div>
+        <br>
     </div>
-    <br>
-  </div>
 </div>

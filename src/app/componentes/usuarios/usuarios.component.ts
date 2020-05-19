@@ -39,7 +39,7 @@ export class UsuariosComponent implements OnInit {
       showCancelButton: true
     }).then(resp => {
       if (resp.value) {
-        this._usuariosService.eliminarUsuario(id).subscribe(res=>{
+        this._usuariosService.eliminarUsuario(id).subscribe(res => {
           this.usuarios.splice(index, 1);
         });
       }

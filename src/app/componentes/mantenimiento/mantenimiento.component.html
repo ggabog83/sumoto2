@@ -1,17 +1,19 @@
-<h1>Mantenimientos <button type="button" (click)="crearMantenimiento(-1)"class="btn btn-success btn1">Nuevo</button></h1>
+<h1>Mantenimientos <button type="button" (click)="crearMantenimiento(-1)" class="btn btn-success btn1"><i class="fas fa-plus-circle"></i>  Nuevo</button></h1>
 <div class="row">
-  <div class="col-4" *ngFor="let mantenimiento of mantenimientos; let i = index">
-    <div class="card" >
-        <div class="card-body">
-            <h4 class="card-title">Tipo mantenimiento: {{mantenimiento.tipoMantenimiento}}</h4>
-            <p class="card-text"> Fecha: {{mantenimiento.fecha}}</p>
-            <p class="card-text"> Mecanico: {{mantenimiento.mecanico}}</p>
-            <p class="card-text"> Vehiculo: {{mantenimiento.vehiculo}}</p>
-            <p class="card-text"> Observación: {{mantenimiento.observacion}}</p>
-            <button type="button" (click)="editarMantenimiento(i)" class="btn btn-primary btn1">Editar</button>
-            <button type="button" (click)="eliminarMantenimiento(i)"class="btn btn-danger btn1">Eliminar</button>
+    <div class="col-4" *ngFor="let mantenimiento of mantenimientos; let i= index">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Tipo mantenimiento: {{mantenimiento.tipoMantenimiento}}
+                </h4>
+                <p class="card-text"> Id: {{mantenimiento.id}}</p>
+                <p class="card-text"> Fecha: {{mantenimiento.fecha}}</p>
+                <p class="card-text"> Mecanico: {{mantenimiento.mecanico}}</p>
+                <p class="card-text"> Vehiculo: {{mantenimiento.vehiculo}}</p>
+                <p class="card-text"> Observación: {{mantenimiento.observaciones}}</p>
+                <button type="button" (click)="editarMantenimiento(mantenimiento.id)" class="btn btn-primary btn1"><i class="fas fa-user-edit"></i> Editar</button>
+                <button type="button" (click)="eliminarMantenimiento(mantenimiento.id,i)" class="btn btn-danger btn1"><i class="fas fa-trash-alt"></i>  Eliminar</button>
+            </div>
         </div>
+        <br>
     </div>
-    <br>
-  </div>
 </div>

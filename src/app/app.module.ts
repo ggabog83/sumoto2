@@ -1,17 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 //servicio
-import{AliadosService} from './servicios/aliados.service'
-import { HttpClientModule} from "@angular/common/http";
+import { AliadosService } from './servicios/aliados.service'
+import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HeaderComponent} from './componentes/shared/header/header.component';
+import { HeaderComponent } from './componentes/shared/header/header.component';
 import { FooterComponent } from './componentes/shared/footer/footer.component';
 import { AliadosComponent } from './componentes/aliados/aliados.component';
 import { TalleresComponent } from './componentes/talleres/talleres.component';
 import { LoginComponent } from './componentes/login/login.component'
 import { APP_ROUTING } from './app.routes';
-import { FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './componentes/home/home.component';
 import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
 import { MantenimientoComponent } from './componentes/mantenimiento/mantenimiento.component';

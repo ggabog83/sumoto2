@@ -1,70 +1,63 @@
 <div class="row m-0">
-  <div class="col-lg-4" >
-  </div>
-  <div class="col-lg-4 " >
-    <form (ngSubmit)="crearEditarUsuario(formUsuario)" #formUsuario="ngForm">
-      <h4>Crear/Editar Usuario</h4>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="">Id: </span>
-        </div>
-        <input type="text" name="id" [(ngModel)]="usuario.id"
-               value="{{usuario.id}}" class="form-control" disabled readonly>
-      </div>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="">Nombre: </span>
-        </div>
-        <input type="text" name="nombre" [(ngModel)]="usuario.nombre"
-        value="{{usuario.nombre}}" class="form-control">
-      </div>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="">Direccion: </span>
-        </div>
-        <input type="text" name="direccion" [(ngModel)]="usuario.direccion"
-        value="{{usuario.direccion}}" class="form-control">
-      </div>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="">Telefono:</span>
-        </div>
-        <input type="text" name="telefono" [(ngModel)]="usuario.telefono" 
-        value="{{usuario.telefono}}" class="form-control">
-      </div>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="">Correo: </span>
-        </div>
-        <input type="email" name="correo" [(ngModel)]="usuario.correo"
-        value="{{usuario.correo}}" class="form-control">
-      </div>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="">Tipo usuario: </span>
-        </div>
-        <input type="text" name="tipoUsuario" [(ngModel)]="usuario.tipoUsuario"
-        value="{{usuario.tipoUsuario}}" class="form-control">
-      </div>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="">Taller: </span>
-        </div>
-        <input type="text" name="taller" [(ngModel)]="usuario.taller" 
-        value="{{usuario.taller}}" class="form-control">
-      </div>
-      <div class="form-group text-center" *ngIf="esEditar">
-        <button type="submit" class="btn btn-primary btn1">Editar
-           <i class="fa fa-update"></i>
-        </button>
-      </div>
-      <div class="form-group text-center" *ngIf="!esEditar">
-        <button type="submit" class="btn btn-success btn1">Crear
-          <i class="fa fa-save"></i>
-        </button>
-      </div>
-    </form>
-  </div>
-  <div class="col-lg-4" >
-  </div>
+    <div class="col-lg-4">
+    </div>
+    <div class="col-lg-4">
+        <form (ngSubmit)="crearEditarUsuario(formUsuario)" #formUsuario="ngForm">
+            <h4>Crear/Editar Usuario</h4>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="">Id: </span>
+                </div>
+                <input type="text" name="id" required [(ngModel)]="usuario.id" value="{{usuario.id}}" class="form-control" disabled readonly>
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="">Nombre: </span>
+                </div>
+                <input type="text" name="nombre" required [(ngModel)]="usuario.nombre" value="{{usuario.nombre}}" class="form-control" required>
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="">Direccion: </span>
+                </div>
+                <input type="text" name="direccion" required [(ngModel)]="usuario.direccion" value="{{usuario.direccion}}" class="form-control">
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="">Telefono:</span>
+                </div>
+                <input type="text" name="telefono" required [(ngModel)]="usuario.telefono" value="{{usuario.telefono}}" class="form-control">
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="">Correo: </span>
+                </div>
+                <input type="email" name="correo" required [(ngModel)]="usuario.correo" value="{{usuario.correo}}" class="form-control">
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="">Tipo usuario: </span>
+                </div>
+                <input type="text" name="tipoUsuario" required [(ngModel)]="usuario.tipoUsuario" value="{{usuario.tipoUsuario}}" class="form-control">
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="">Taller: </span>
+                </div>
+                <input type="text" name="taller" required [(ngModel)]="usuario.taller" value="{{usuario.taller}}" class="form-control">
+            </div>
+            <div class="form-group text-center" *ngIf="esEditar">
+                <button type="submit" class="btn btn-primary btn1">Editar
+                    <i class="fa fa-save"></i>
+                </button>
+            </div>
+            <div class="form-group text-center" *ngIf="!esEditar">
+                <button type="submit" class="btn btn-success btn1">Crear
+                    <i class="fa fa-save"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="col-lg-4">
+    </div>
 </div>

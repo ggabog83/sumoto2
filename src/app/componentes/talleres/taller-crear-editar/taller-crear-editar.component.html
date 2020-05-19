@@ -1,33 +1,45 @@
 <div class="row m-0">
-    <div class="col-lg-4" >
+    <div class="col-lg-4">
     </div>
-    <div class="col-lg-4 " >
-      <h4>Crear/Editar Taller</h4>
-  <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="">Nombre: </span>
-      </div>
-      <input type="text" value="{{taller.nombre}}" class="form-control">
-  </div>
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="">Direccion: </span>
+    <div class="col-lg-4">
+        <form (ngSubmit)="crearEditarTaller(formTaller)" #formTaller="ngForm">
+            <h4>Crear/Editar Taller</h4>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="">Id: </span>
+                </div>
+                <input type="text" name="id" required [(ngModel)]="taller.id" value="{{taller.id}}" class="form-control" disabled readonly>
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="">Nombre: </span>
+                </div>
+                <input type="text" name="nombre" required [(ngModel)]="taller.nombre" value="{{taller.nombre}}" class="form-control">
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="">Direccion: </span>
+                </div>
+                <input type="text" name="direccion" required [(ngModel)]="taller.direccion" value="{{taller.direccion}}" class="form-control">
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="">Telefono:</span>
+                </div>
+                <input type="text" name="telefono" required [(ngModel)]="taller.telefono" value="{{taller.telefono}}" class="form-control">
+            </div>
+            <div class="form-group text-center" *ngIf="esEditar">
+                <button type="submit" class="btn btn-primary btn1">Editar
+                    <i class="fa fa-save"></i>
+                </button>
+            </div>
+            <div class="form-group text-center" *ngIf="!esEditar">
+                <button type="submit" class="btn btn-success btn1">Crear
+                    <i class="fa fa-save"></i>
+                </button>
+            </div>
+        </form>
     </div>
-    <input type="text" value="{{taller.direccion}}" class="form-control">
-  </div>
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="">Telefono:</span>
+    <div class="col-lg-4">
     </div>
-    <input type="text" value="{{taller.telefono}}" class="form-control">
-  </div>
-  <div class="input-group" *ngIf="esEditar">
-    <button type="button" class="btn btn-primary btn1">Editar</button>
-  </div>
-  <div class="input-group" *ngIf="!esEditar">
-    <button type="button" class="btn btn-success btn1">Crear</button>
-  </div>
-  </div>
-  <div class="col-lg-4" >
-  </div>
-  </div>
+</div>

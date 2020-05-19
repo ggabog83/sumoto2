@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {UsuariosService} from '../../../servicios/usuarios.service';
-import {ActivatedRoute} from '@angular/router';
-import { Usuario } from 'src/app/modelos/usuario.model';
-
+import { ActivatedRoute, Router } from '@angular/router';
+import { TalleresService } from 'src/app/servicios/talleres.service';
+import { NgForm } from '@angular/forms';
+import Swal from 'sweetalert2';
+import { Observable } from 'rxjs';
+import { Taller } from 'src/app/modelos/taller.model';
 
 @Component({
   selector: 'app-taller-crear-editar',
@@ -11,27 +13,53 @@ import { Usuario } from 'src/app/modelos/usuario.model';
 })
 export class TallerCrearEditarComponent implements OnInit {
 
-  usuario:Usuario;
-  esEditar:Boolean = false;
+  taller = new Taller();
+  esEditar: Boolean = false;
 
-  constructor(private _activateRouter:ActivatedRoute,
-    private _usuariosService:UsuariosService) {
+  constructor(private _activateRouter: ActivatedRoute, private _router: Router,
+    private _talleresService: TalleresService) {
 
-    this._activateRouter.params.subscribe(params=>{
+    this._activateRouter.params.subscribe(params => {
       let id = params['id'];
-      if(id != "-1"){
+      if (id != "-1") {
         this.esEditar = true;
-        this._usuariosService.getUsuario(id).subscribe(resp => {
-            this.usuario = resp;
+        this._talleresService.getTaller(id).subscribe(resp => {
+          this.taller = resp;
         });
-      }else{
+      } else {
         this.esEditar = false;
       }
-      });
-   }
-
+    });
+  }
 
   ngOnInit() {
   }
 
+  crearEditarTaller(formTaller: NgForm) {
+    if (formTaller.invalid) { return }
+
+    Swal.fire({
+      allowOutsideClick: false,
+      icon: "info",
+      text: 'Guardando...'
+    });
+    Swal.showLoading();
+
+    let peticion = new Observable<any>();
+
+    if (this.taller.id) {
+      peticion = this._talleresService.actualizarTaller(this.taller);
+    } else {
+      peticion = this._talleresService.crearTaller(this.taller);
+    }
+
+    peticion.subscribe(resp => {
+      Swal.fire({
+        title: this.taller.nombre,
+        icon: "success",
+        text: 'Se guardo correctamente'
+      });
+      this._router.navigate(['talleres']);
+    });
+  }
 }

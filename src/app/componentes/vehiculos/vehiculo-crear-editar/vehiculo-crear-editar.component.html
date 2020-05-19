@@ -1,46 +1,57 @@
 <div class="row m-0">
-    <div class="col-lg-4" >
+    <div class="col-lg-4">
     </div>
-    <div class="col-lg-4 " >
-      <h4>Crear/Editar Vehiculo</h4>
-  <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="">Placa: </span>
-      </div>
-      <input type="text" value="{{vehiculo.placa}}" class="form-control">
-  </div>
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="">Marca: </span>
+    <div class="col-lg-4">
+        <h4>Crear/Editar Vehiculo</h4>
+        <form (ngSubmit)="crearEditarVehiculo(formVehiculo)" #formVehiculo="ngForm">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="">Id: </span>
+                </div>
+                <input type="text" name="id" [(ngModel)]="vehiculo.id" value="{{vehiculo.id}}" class="form-control" disabled readonly>
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="">Placa: </span>
+                </div>
+                <input type="text" name="placa" required [(ngModel)]="vehiculo.placa" value="{{vehiculo.placa}}" class="form-control">
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="">Marca: </span>
+                </div>
+                <input type="text" name="marca" required [(ngModel)]="vehiculo.marca" value="{{vehiculo.marca}}" class="form-control">
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="">Color:</span>
+                </div>
+                <input type="text" name="color" required [(ngModel)]="vehiculo.color" value="{{vehiculo.color}}" class="form-control">
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="">Modelo: </span>
+                </div>
+                <input type="text" name="modelo" required [(ngModel)]="vehiculo.modelo" value="{{vehiculo.modelo}}" class="form-control">
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="">Propietario: </span>
+                </div>
+                <input type="text" name="usuario" required [(ngModel)]="vehiculo.usuario" value="{{vehiculo.usuario}}" class="form-control">
+            </div>
+            <div class="form-group text-center" *ngIf="esEditar">
+                <button type="submit" class="btn btn-primary btn1">Editar
+                    <i class="fa fa-save"></i>
+                </button>
+            </div>
+            <div class="form-group text-center" *ngIf="!esEditar">
+                <button type="submit" class="btn btn-success btn1">Crear
+                    <i class="fa fa-save"></i>
+                </button>
+            </div>
+        </form>
     </div>
-    <input type="text" value="{{vehiculo.marca}}" class="form-control">
-  </div>
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="">Color:</span>
+    <div class="col-lg-4">
     </div>
-    <input type="text" value="{{vehiculo.color}}" class="form-control">
-  </div>
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="">Modelo: </span>
-    </div>
-    <input type="text" value="{{vehiculo.modelo}}" class="form-control">
-  </div>
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="">Propietario: </span>
-    </div>
-    <input type="text" value="{{vehiculo.usuario}}" class="form-control">
-  </div>
-  <div class="input-group" *ngIf="esEditar">
-    <button type="button" class="btn btn-primary btn1">Editar</button>
-  </div>
-  <div class="input-group" *ngIf="!esEditar">
-    <button type="button" class="btn btn-success btn1">Crear</button>
-  </div>
-  </div>
-  <div class="col-lg-4" >
-  </div>
-  </div>
-
+</div>

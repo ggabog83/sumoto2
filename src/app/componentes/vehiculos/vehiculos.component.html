@@ -1,18 +1,20 @@
-<h1>Vehiculos <button type="button" (click)="crearVehiculo(-1)"class="btn btn-success btn1">Nuevo</button></h1>
+<h1>Vehiculos <button type="button" (click)="crearVehiculo(-1)" class="btn
+    btn-success btn1"><i class="fas fa-plus-circle"></i>  Nuevo</button></h1>
 <div class="row">
-  <div class="col-4" *ngFor="let vehiculo of vehiculos; let i = index">
-    <div class="card" >
-      <img [src]="vehiculo.img" class="card-img-top" [alt]="vehiculo.nombre">
-        <div class="card-body">
-            <h4 class="card-title">Placa: {{vehiculo.placa}}</h4>
-            <p class="card-text"> Marca: {{vehiculo.marca}}</p>
-            <p class="card-text"> Color:: {{vehiculo.color}}</p>
-            <p class="card-text"> Modelo: {{vehiculo.modelo}}</p>
-            <p class="card-text"> Propietario: {{vehiculo.usuario}}</p>
-            <button type="button" (click)="editarVehiculo(i)" class="btn btn-primary btn1">Editar</button>
-            <button type="button" (click)="eliminarVehiculo(i)"class="btn btn-danger btn1">Eliminar</button>
+    <div class="col-4" *ngFor="let vehiculo of vehiculos; let i= index">
+        <div class="card">
+            <!-- <img [src]="vehiculo.img" class="card-img-top" [alt]="vehiculo.nombre">-->
+            <div class="card-body">
+                <h4 class="card-title">Placa: {{vehiculo.placa}}</h4>
+                <p class="card-text"> Id: {{vehiculo.id}}</p>
+                <p class="card-text"> Marca: {{vehiculo.marca}}</p>
+                <p class="card-text"> Color:: {{vehiculo.color}}</p>
+                <p class="card-text"> Modelo: {{vehiculo.modelo}}</p>
+                <p class="card-text"> Propietario: {{vehiculo.usuario}}</p>
+                <button type="button" (click)="editarVehiculo(vehiculo.id)" class="btn btn-primary btn1"><i class="fas fa-user-edit"></i>  Editar</button>
+                <button type="button" (click)="eliminarVehiculo(vehiculo.id, i)" class="btn btn-danger btn1"><i class="fas fa-trash-alt"></i>  Eliminar</button>
+            </div>
         </div>
+        <br>
     </div>
-    <br>
-  </div>
 </div>
