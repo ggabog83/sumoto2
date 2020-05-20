@@ -14,16 +14,19 @@ export class LoginComponent implements OnInit {
 
   public loading = false;
   login: LoginModel;
+  mensajesError:any;
 
   constructor(private authService: AuthService,
     private router: Router) {
   }
+
   ngOnInit() {
     this.login = new LoginModel();
+    this.mensajesError = this.authService.getMensajesError();
   }
 
   onSubmit(formLogin:NgForm){
-    
+       
     if (formLogin.invalid) { return }
 
     Swal.fire({

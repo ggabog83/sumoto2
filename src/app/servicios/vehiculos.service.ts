@@ -33,4 +33,8 @@ export class VehiculosService extends ServicioBaseService {
   public getVehiculo(id: string) {
     return super.obtenerPorId(id, this.colleccion);
   }
+
+  public gerMensajesError(){
+    return super.getMensajesError();
+  }
 }

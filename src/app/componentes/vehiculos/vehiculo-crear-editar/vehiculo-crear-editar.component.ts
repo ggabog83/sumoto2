@@ -14,9 +14,11 @@ import { Observable } from 'rxjs';
 export class VehiculoCrearEditarComponent implements OnInit {
   vehiculo = new Vehiculo();
   esEditar: Boolean = false;
+  mensajesError:any;
 
   constructor(private _activateRouter: ActivatedRoute, private _router: Router,
     private _vehiculoService: VehiculosService) {
+      this.mensajesError = _vehiculoService.getMensajesError();
     this._activateRouter.params.subscribe(params => {
       let id = params['id'];
       if (id != -1) {

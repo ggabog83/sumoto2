@@ -32,4 +32,8 @@ export class MantenimientoService  extends ServicioBaseService {
   public getMantenimiento(id: string) {
     return super.obtenerPorId(id, this.colleccion);
   }
+
+  public gerMensajesError(){
+    return super.getMensajesError();
+  }
 }

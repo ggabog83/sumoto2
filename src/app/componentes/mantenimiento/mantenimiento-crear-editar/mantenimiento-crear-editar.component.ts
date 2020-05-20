@@ -15,10 +15,11 @@ export class MantenimientoCrearEditarComponent implements OnInit {
 
   mantenimiento = new Mantenimiento();
   esEditar: Boolean = false;
+  mensajesError:any;
 
   constructor(private _activateRouter: ActivatedRoute, private _router: Router,
     private _mantenimientoService: MantenimientoService) {
-
+      this.mensajesError = this._mantenimientoService.gerMensajesError();
     this._activateRouter.params.subscribe(params => {
       let id = params['id'];
       if (id != "-1") {

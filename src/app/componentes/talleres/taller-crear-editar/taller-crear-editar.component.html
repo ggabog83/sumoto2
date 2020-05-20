@@ -16,18 +16,24 @@
                 </div>
                 <input type="text" name="nombre" required [(ngModel)]="taller.nombre" value="{{taller.nombre}}" class="form-control">
             </div>
+            <span *ngIf="formTaller.submitted && formTaller.controls['nombre'].errors" class="text-danger">{{mensajesError.nombreRequerido}}</span>
+
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">Direccion: </span>
                 </div>
                 <input type="text" name="direccion" required [(ngModel)]="taller.direccion" value="{{taller.direccion}}" class="form-control">
             </div>
+            <span *ngIf="formTaller.submitted && formTaller.controls['direccion'].errors" class="text-danger">{{mensajesError.direccionRequerida}}</span>
+
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">Telefono:</span>
                 </div>
                 <input type="text" name="telefono" required [(ngModel)]="taller.telefono" value="{{taller.telefono}}" class="form-control">
             </div>
+            <span *ngIf="formTaller.submitted && formTaller.controls['telefono'].errors" class="text-danger">{{mensajesError.telefonoRequerido}}</span>
+
             <div class="form-group text-center" *ngIf="esEditar">
                 <button type="submit" class="btn btn-primary btn1">Editar
                     <i class="fa fa-save"></i>

@@ -32,4 +32,8 @@ export class TalleresService extends ServicioBaseService {
   public getTaller(id: string) {
     return super.obtenerPorId(id, this.colleccion);
   }
+
+  public gerMensajesError(){
+    return super.getMensajesError();
+  }
 }

@@ -15,10 +15,10 @@ import { Observable } from 'rxjs';
 export class UsuarioCrearEditarComponent implements OnInit {
   usuario = new Usuario();
   esEditar: Boolean = false;
-
+  mensajesError:any;
   constructor(private _activateRouter: ActivatedRoute, private _router: Router,
     private _usuariosService: UsuariosService) {
-
+      this.mensajesError = _usuariosService.getMensajesError();
     this._activateRouter.params.subscribe(params => {
       let id = params['id'];
       if (id != -1) {

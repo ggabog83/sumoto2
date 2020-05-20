@@ -16,29 +16,37 @@
                 </div>
                 <input type="text" name="tipoMantenimiento" required [(ngModel)]="mantenimiento.tipoMantenimiento" value="{{mantenimiento.tipoMantenimiento}}" class="form-control">
             </div>
+            <span *ngIf="formMantenimiento.submitted && formMantenimiento.controls['tipoMantenimiento'].errors" class="text-danger">{{mensajesError.tipoMantenimientoRequerido}}</span>
+
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">Fecha: </span>
                 </div>
                 <input type="date" name="fecha" required [(ngModel)]="mantenimiento.fecha" value="{{mantenimiento.fecha}}" class="form-control">
             </div>
+            <span *ngIf="formMantenimiento.submitted && formMantenimiento.controls['fecha'].errors" class="text-danger">{{mensajesError.fechaRequerida}}</span>
+
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">Mecanico::</span>
                 </div>
                 <input type="text" name="mecanico" required [(ngModel)]="mantenimiento.mecanico" value="{{mantenimiento.mecanico}}" class="form-control">
             </div>
+            <span *ngIf="formMantenimiento.submitted && formMantenimiento.controls['mecanico'].errors" class="text-danger">{{mensajesError.mecanicoRequerido}}</span>
+
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">Vehiculo: </span>
                 </div>
                 <input type="email" name="vehiculo" required [(ngModel)]="mantenimiento.vehiculo" value="{{mantenimiento.vehiculo}}" class="form-control">
             </div>
+            <span *ngIf="formMantenimiento.submitted && formMantenimiento.controls['vehiculo'].errors" class="text-danger">{{mensajesError.vehiculoRequerido}}</span>
+
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">Observaciónes: </span>
                 </div>
-                <input type="text" name="observaciones" required [(ngModel)]="mantenimiento.observaciones" value="{{mantenimiento.observaciones}}" class="form-control">
+                <input type="text" name="observaciones" [(ngModel)]="mantenimiento.observaciones" value="{{mantenimiento.observaciones}}" class="form-control">
             </div>
             <div class="form-group text-center" *ngIf="esEditar">
                 <button type="submit" class="btn btn-primary btn1">Editar

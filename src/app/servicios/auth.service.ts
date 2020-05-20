@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LoginModel } from '../modelos/login.model';
 import { map } from 'rxjs/operators';
+import { ServicioBaseService } from './servicio-base.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class AuthService {
   private apiKey="AIzaSyDxSLhFVPP83sl07quPqr-HucouhyTyrXs";
   private userToken:string;
 
-  constructor(private http:HttpClient) { 
+  constructor(private http:HttpClient, private _servicioBase:ServicioBaseService) { 
     this.leerToken();
   }
 
@@ -22,7 +23,6 @@ export class AuthService {
       returnSecureToken:true
     }
 
-   console.log(authData)
     return this.http.post(
       `${this.url}signUp?key=${this.apiKey}`,
       authData).pipe(map(resp => {
@@ -80,5 +80,9 @@ export class AuthService {
 
   cerrarSesion(){
     localStorage.removeItem('token');
+  }
+
+  getMensajesError(){
+    return this._servicioBase.getMensajesError();
   }
 }

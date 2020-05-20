@@ -13,12 +13,15 @@ import { Subscriber } from 'rxjs';
 })
 export class RegistroComponent implements OnInit {
   login: LoginModel;
+  mensajesError:any;
+  
   constructor(private authService: AuthService,
     private router: Router) {
   }
 
   ngOnInit() {
     this.login = new LoginModel();
+    this.mensajesError = this.authService.getMensajesError();
   }
 
   onSubmit(formRegistro: NgForm) {

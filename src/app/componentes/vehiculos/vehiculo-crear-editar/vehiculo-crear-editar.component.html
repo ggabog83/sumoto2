@@ -16,30 +16,36 @@
                 </div>
                 <input type="text" name="placa" required [(ngModel)]="vehiculo.placa" value="{{vehiculo.placa}}" class="form-control">
             </div>
+            <span *ngIf="formVehiculo.submitted && formVehiculo.controls['placa'].errors" class="text-danger">{{mensajesError.placaRequerida}}</span>
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">Marca: </span>
                 </div>
                 <input type="text" name="marca" required [(ngModel)]="vehiculo.marca" value="{{vehiculo.marca}}" class="form-control">
             </div>
+            <span *ngIf="formVehiculo.submitted && formVehiculo.controls['marca'].errors" class="text-danger">{{mensajesError.marcaRequerida}}</span>
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">Color:</span>
                 </div>
                 <input type="text" name="color" required [(ngModel)]="vehiculo.color" value="{{vehiculo.color}}" class="form-control">
             </div>
+            <span *ngIf="formVehiculo.submitted && formVehiculo.controls['color'].errors" class="text-danger">{{mensajesError.colorRequerido}}</span>
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">Modelo: </span>
                 </div>
                 <input type="text" name="modelo" required [(ngModel)]="vehiculo.modelo" value="{{vehiculo.modelo}}" class="form-control">
             </div>
+            <span *ngIf="formVehiculo.submitted && formVehiculo.controls['modelo'].errors" class="text-danger">{{mensajesError.modeloRequerido}}</span>
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">Propietario: </span>
                 </div>
                 <input type="text" name="usuario" required [(ngModel)]="vehiculo.usuario" value="{{vehiculo.usuario}}" class="form-control">
             </div>
+            <span *ngIf="formVehiculo.submitted && formVehiculo.controls['usuario'].errors" class="text-danger">{{mensajesError.propietarioRequerido}}</span>
+
             <div class="form-group text-center" *ngIf="esEditar">
                 <button type="submit" class="btn btn-primary btn1">Editar
                     <i class="fa fa-save"></i>

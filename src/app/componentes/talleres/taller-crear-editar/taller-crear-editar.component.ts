@@ -15,10 +15,11 @@ export class TallerCrearEditarComponent implements OnInit {
 
   taller = new Taller();
   esEditar: Boolean = false;
+  mensajesError:any;
 
   constructor(private _activateRouter: ActivatedRoute, private _router: Router,
     private _talleresService: TalleresService) {
-
+      this.mensajesError = _talleresService.getMensajesError();
     this._activateRouter.params.subscribe(params => {
       let id = params['id'];
       if (id != "-1") {

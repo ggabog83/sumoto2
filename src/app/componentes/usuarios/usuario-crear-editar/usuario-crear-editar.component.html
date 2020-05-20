@@ -16,36 +16,48 @@
                 </div>
                 <input type="text" name="nombre" required [(ngModel)]="usuario.nombre" value="{{usuario.nombre}}" class="form-control" required>
             </div>
+            <span *ngIf="formUsuario.submitted &&
+                formUsuario.controls['nombre'].errors" class="text-danger">{{mensajesError.nombreRequerido}}</span>
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">Direccion: </span>
                 </div>
                 <input type="text" name="direccion" required [(ngModel)]="usuario.direccion" value="{{usuario.direccion}}" class="form-control">
             </div>
+            <span *ngIf="formUsuario.submitted &&
+                formUsuario.controls['direccion'].errors" class="text-danger">{{mensajesError.direccionRequerida}}</span>
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">Telefono:</span>
                 </div>
                 <input type="text" name="telefono" required [(ngModel)]="usuario.telefono" value="{{usuario.telefono}}" class="form-control">
             </div>
+            <span *ngIf="formUsuario.submitted &&
+                formUsuario.controls['telefono'].errors" class="text-danger">{{mensajesError.telefonoRequerido}}</span>
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">Correo: </span>
                 </div>
                 <input type="email" name="correo" required [(ngModel)]="usuario.correo" value="{{usuario.correo}}" class="form-control">
             </div>
+            <span *ngIf="formUsuario.submitted &&
+                formUsuario.controls['correo'].errors" class="text-danger">{{mensajesError.correoRequerido}}</span>
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">Tipo usuario: </span>
                 </div>
                 <input type="text" name="tipoUsuario" required [(ngModel)]="usuario.tipoUsuario" value="{{usuario.tipoUsuario}}" class="form-control">
             </div>
+            <span *ngIf="formUsuario.submitted &&
+                formUsuario.controls['tipoUsuario'].errors" class="text-danger">{{mensajesError.tipoUsuarioRequerido}}</span>
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">Taller: </span>
                 </div>
                 <input type="text" name="taller" required [(ngModel)]="usuario.taller" value="{{usuario.taller}}" class="form-control">
             </div>
+            <span *ngIf="formUsuario.submitted &&
+                formUsuario.controls['taller'].errors" class="text-danger">{{mensajesError.tallerRequerido}}</span>
             <div class="form-group text-center" *ngIf="esEditar">
                 <button type="submit" class="btn btn-primary btn1">Editar
                     <i class="fa fa-save"></i>

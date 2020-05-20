@@ -1,0 +1,17 @@
+{
+    "nombreRequerido": "El nombre es requerido.",
+    "direccionRequerida": "La direccion es requerida.",
+    "telefonoRequerido": "El telefono es requerido.",
+    "placaRequerida": "La placa es requerida.",
+    "marcaRequerida": "La marca es requerida.",
+    "colorRequerido": "El color es requerido.",
+    "modeloRequerido": "El modelo es requerido.",
+    "propietarioRequerido": "El propietario es requerido.",
+    "correoRequerido": "El correo es requerido.",
+    "tipoUsuarioRequerido": "El tipo usuario es requerido.",
+    "tallerRequerido": "El taller es requerido.",
+    "tipoMantenimientoRequerido": "El tipo mantenimiento es requerido.",
+    "fechaRequerida": "La fecha es requerida.",
+    "mecanicoRequerido": "El mecanico es requerido.",
+    "vehiculoRequerido": "El vehiculo es requerido."
+}
